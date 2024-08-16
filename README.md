@@ -46,6 +46,11 @@ Creates a new user and saves it to the database.
 
 Retrieves user information based on the specified ID.
 
+**Authorization**:
+
+- **Header**: `Authorization: Bearer <your-token>`
+- **Description**: A valid JWT token is required in the `Authorization` header to access this endpoint.
+
 **Query Parameters**:
 
 - `id` (URL parameter) — User ID.
@@ -63,6 +68,17 @@ Retrieves user information based on the specified ID.
     "phone": "1234567890",
     "createdAt": "2024-08-16T00:00:00.000Z",
     "updatedAt": "2024-08-16T00:00:00.000Z"
+  }
+  ```
+
+- **Status**: `401 Unauthorized` (if no token or an invalid token is provided)
+- **Response Body**:
+
+  ```json
+  {
+    "statusCode": 401,
+    "message": "Unauthorized",
+    "error": "Unauthorized"
   }
   ```
 
